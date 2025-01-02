@@ -1,10 +1,14 @@
 'use client';
 
+
+
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { useParams } from 'next/navigation';
+import Link from "next/link";
+
 
 
 
@@ -26,6 +30,7 @@ type Product = {
 };
 
 const ProductDetailsPage = () => {
+  
   const { id } = useParams(); // Get the ID from URL params
   const [product, setProduct] = useState<Product | null>(null);
 
@@ -49,7 +54,10 @@ const ProductDetailsPage = () => {
   }, [id]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase mb-4 w-[300px] sm:w-[450px] h-[87px] justify-center flex items-center bg-transparent border-4 text-black border-black" style={{ boxShadow: "10px 10px 20px #C1AA90" }}>
+            Loading...
+          </div>
+        
   }
 
   return (
@@ -136,7 +144,22 @@ const ProductDetailsPage = () => {
           ))}
         </ul>
       </div>
+
+
+      
+
     </div>
+    <div className="text-center items-center flex justify-center md:text-left py-8">
+                <Link
+                  href="/products"
+                  className="px-6 py-3 text-white bg-black rounded-full shadow-md transform transition-all hover:scale-105"
+                  style={{ boxShadow: "4px 4px 10px white" }}
+                >
+                  Back to Products
+                </Link>
+              </div>
+
+
     <Footer />
     </div>
   );

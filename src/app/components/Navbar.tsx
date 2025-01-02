@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { DiVim } from "react-icons/di";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,10 +61,10 @@ const Navbar = () => {
             }`}
           >
             <Link href="/" className="px-4 py-2 text-center">Home</Link>
-            <Link href="about" className="px-4 py-2 text-center">Shop</Link>
-            <Link href="skills" className="px-4 py-2 text-center">About Us</Link>
-            <Link href="projects" className="px-4 py-2 text-center">Portfolio</Link>
-            <Link href="contact" className="px-4 py-2 text-center">Contact Me</Link>
+            <Link href="products" className="px-4 py-2 text-center">Shop</Link>
+            <Link href="About" className="px-4 py-2 text-center">About Us</Link>
+            <Link href="Services" className="px-4 py-2 text-center">Services</Link>
+            <Link href="Blogs" className="px-4 py-2 text-center">Blog</Link>
           </nav>
 
           {/* Icons (Social Media, etc.) */}

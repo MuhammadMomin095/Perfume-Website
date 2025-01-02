@@ -45,57 +45,50 @@ export default async function Blogs() {
 
 
 
-        <div className="flex flex-col justify-start items-start flex-grow-0 flex-shrink-0">
+        <div className="py-4 md:px-10 px-6 lg:px-20 object-cover rounded-md mb-4 w-full">
+  <div className="grid grid-cols-2 grid-rows-2">
+
+    {/* Image 1 */}
+    <div className="w-full h-[246px] relative">
+  <div className="absolute bottom-0 w-full bg-[#d9d9d9]" />
+  <img
+    src="a.png"
+    className="w-full h-full object-cover"
+  />
+</div>
 
 
-
-
-  <div className="flex justify-start items-start flex-grow-0 w-full flex-shrink-0 relative">
-    <div className="flex-grow-0 flex-shrink-0 w-[310px] h-[246px]">
-      <div className="w-[310px] h-[246px] absolute left-[-0.5px] top-[-0.5px] bg-[#d9d9d9]" />
-      <img
-        src="a.png"
-        className="w-[310px] h-[310px] absolute left-[-0.5px] top-[-32.5px] object-cover"
-      />
-    </div>
-
-
-
-
-
-    <div className="flex-grow-0 flex-shrink-0 w-[355px] h-[246px]">
-      <div className="w-[355px] h-[246px] absolute left-[309.5px] top-[-0.5px] bg-[#d9d9d9]" />
+    {/* Image 2 */}
+    <div className="w-full h-[246px] relative">
+      <div className="absolute bottom-0 w-full bg-[#d9d9d9]" />
       <img
         src="b.png"
-        className="w-[355px] h-[355px] absolute left-[309.5px] top-[-28.5px] object-cover"
+        className="w-full h-full object-cover"
       />
     </div>
-  </div>
+    
 
-
-
-  <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative">
-    <div className="flex-grow-0 flex-shrink-0 w-[455px] h-[246px]">
-      <div className="w-[455px] h-[246px] absolute left-[-0.5px] top-[-0.5px] bg-[#d9d9d9]" />
+    {/* Image 3 */}
+    <div className="w-full h-[246px] relative">
+      <div className="absolute bottom-0 w-full bg-[#d9d9d9]" />
       <img
         src="c.jpeg"
-        className="w-[455px] h-[246px] absolute left-[-0.5px] top-[-0.5px] object-cover"
+        className="w-full h-full object-cover"
       />
     </div>
 
-
-
-
-
-    <div className="flex-grow-0 flex-shrink-0 w-[210px] h-[246px]">
-      <div className="w-[210px] h-[246px] absolute left-[454.5px] top-[-0.5px] bg-[#d9d9d9]" />
+    {/* Image 4 */}
+    <div className="w-full h-[246px] relative">
+      <div className="absolute bottom-0 w-full bg-[#d9d9d9]" />
       <img
         src="d.png"
-        className="w-[218.32px] h-[278.79px] absolute left-[454.5px] top-[-0.5px] object-cover"
+        className="w-full h-full object-cover"
       />
     </div>
+
   </div>
 </div>
+
 
 
        
@@ -119,7 +112,7 @@ export default async function Blogs() {
 
 
 
-        <div className="flex flex-wrap justify-center items-center  gap-4  ">
+        <div className="flex flex-wrap justify-center items-center py-16 gap-4  ">
           {data.map((blog: any, index: number) => (
               <div
                 key={index}
