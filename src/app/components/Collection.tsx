@@ -15,8 +15,12 @@ export default async function Collection() {
 </div>
 
 <div className="flex flex-col justify-start items-center self-stretch flex-grow-0 flex-shrink-0 gap-[46px] px-20">
+
+
+
+  
   <div className="flex flex-col lg:flex-row justify-start items-start flex-grow-0 flex-shrink-0 relative gap-[46px] w-full">
-    <div className="flex-grow-0 flex-shrink-0 w-full lg:w-[460px] h-[460px] relative">
+    <div className="flex-grow-0 flex-shrink-0 w-full lg:w-[300px] h-[460px] relative">
       <img
         src="darkstar_victorian_meets_brutalism__gorgeous_perfume_bottle_lav_b49a73d7-8623-4255-a2e7-6e502992c494-1.png"
         className="w-full h-full object-cover"
@@ -36,8 +40,31 @@ export default async function Collection() {
     </div>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div className="flex flex-col lg:flex-row justify-start items-start flex-grow-0 flex-shrink-0 relative gap-[46px] w-full">
-    <div className="flex-grow-0 flex-shrink-0 w-full lg:w-[557.87px] h-[480px] relative">
+    <div className="flex-grow-0 flex-shrink-0 w-full lg:w-[400.87px] h-[480px] relative">
       <img
         src="kuroswan972_give_me_a_caldera_photo_of_a_luxurious_perfume_in_h_04778b6a-cfc4-43ba-9bc8-dee37245a2d1-1.png"
         className="w-full h-full object-none"
@@ -58,31 +85,34 @@ export default async function Collection() {
   </div>
 
 
+
+
   <div className="flex flex-col lg:flex-row justify-start items-start flex-grow-0 flex-shrink-0 relative gap-11 w-full">
-  <div className="flex-grow-0 flex-shrink-0 w-full lg:w-80 h-[480px] relative">
+  <div className="flex-grow-0 flex-shrink-0 w-full lg:w-64 h-[480px] relative">
     <img
       src="old-fashion-black-&-gold-color-perfume-bottles-set-1.jpeg"
       className="w-full h-full object-cover"
     />
-    <p className="w-[293px] h-[42px] absolute left-5 bottom-[-0px] text-2xl font-medium text-left text-white">
-      Vintage Collection
+    <p className="w-full absolute left-5 bottom-[-0px] text-2xl font-medium text-left text-white">
+      Vintage Treasures Collection
     </p>
   </div>
-  <div className="flex-grow-0 flex-shrink-0 w-full lg:w-[436px] h-[480px] relative">
+  <div className="flex-grow-0 flex-shrink-0 w-full lg:w-[400px] h-[480px] relative">
     <img
       src="kuroswan972_i_want_to_create_a_cube_stunning_photo_of_the_mysti_14ae08f2-16bb-4e85-b781-bf371c99faf1-2.png"
       className="w-full h-full object-none"
     />
-    <p className="w-[293px] h-[42px] absolute left-[5px] bottom-[-0px] text-2xl font-medium text-left text-white">
+    <p className="w-full absolute left-[5px] bottom-[-0px] text-2xl font-medium text-left text-white">
       Limited Edition Treasures
     </p>
   </div>
-  <div className="flex-grow-0 flex-shrink-0 w-full lg:w-[392px] h-[480px] relative">
+
+  <div className="flex-grow-0 flex-shrink-0 w-full md:w-full lg:w-[330px] h-[480px] relative">
     <img
       src="nouillepascuite_perfum_modern_shoot_for_vogue_rectangular_shot__036e3104-df47-445e-956e-04f1978997e2-1.png"
       className="w-full h-full object-none"
     />
-    <p className="absolute w-[331.16px] h-[42px] left-[5px] bottom-[-0px] text-2xl font-medium text-left text-white">
+    <p className="absolute w-full left-[5px] bottom-[-0px] text-2xl font-medium text-left text-white">
       Modern Classics Collection
     </p>
   </div>
@@ -158,7 +188,7 @@ export default async function Collection() {
           {data.map((article: any, index: number) => (
               <div
                 key={index}
-                className="flex flex-col justify-start items-center gap-2 w-[400px]  "
+                className="flex flex-col justify-start items-center gap-2 w-[350px]  "
               >
                 {article.image?.asset && (
                   <div className="w-full aspect-square overflow-hidden">
@@ -188,6 +218,11 @@ export default async function Collection() {
             ))}
           
           </div>
+
+
+
+
+          
           <div/>
           </div>
           </div>

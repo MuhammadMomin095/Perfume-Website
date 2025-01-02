@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-<footer className="w-full h-auto bg-black text-white " style={{ boxShadow: "-36px -36px 96px #06141B" }}>
+<footer className="w-full  py-10 bg-black text-white " style={{ boxShadow: "-36px -36px 96px #06141B" }}>
   <div className="container mx-auto text-center lg:text-left px-6 md:px-12 ">
     
     {/* Footer Links Section */}
@@ -79,7 +79,10 @@ const Footer = () => {
             <Link href="/projects" className="text-[#CCD0CF] hover:text-emerald-500">Shop</Link>
           </li>
           <li>
-            <Link href="/projects" className="text-[#CCD0CF] hover:text-emerald-500">Contact Us</Link>
+            <Link href="/projects" className="text-[#CCD0CF] hover:text-emerald-500">Services</Link>
+          </li>
+          <li>
+            <Link href="/projects" className="text-[#CCD0CF] hover:text-emerald-500">Blogs</Link>
           </li>
         </ul>
       </div>

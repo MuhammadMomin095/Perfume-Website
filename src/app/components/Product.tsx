@@ -20,7 +20,7 @@ export default async function Production() {
           {data.map((perfume: any, index: number) => (
             <div
               key={index}
-              className="flex flex-col justify-center items-center gap-4 p-4 border border-black bg-gradient-to-r from-gray-950 via-gray-500 to-gray-950 rounded-lg"
+              className="flex flex-col justify-center items-center gap-4 p-4 border border-black bg-gradient-to-r from-gray-950 via-gray-700 to-gray-950 rounded-lg"
             >
               {/* Product Image */}
               {perfume.image?.asset && (

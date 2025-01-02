@@ -2,7 +2,10 @@ import React from "react";
 
 const About: React.FC = () => {
   return (
-    <div className="w-full h-auto bg-gradient-to-r from-black via-black to-[#121212]  relative">
+
+    <div className=" w-full bg-black relative py-32 px-2 md:px-20 lg:px-32">
+    
+    <div className="w-full h-auto   relative ">
       <div className="flex flex-col lg:flex-row justify-start items-center gap-[81px] lg:h-[575px]  ">
         <div className="flex justify-start items-start">
         <img
@@ -34,6 +37,9 @@ const About: React.FC = () => {
       </div>
       </div>
     </div>
+    </div>
+
+    
   );
 };
 
