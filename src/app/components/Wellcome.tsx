@@ -7,7 +7,7 @@ const Welcome: React.FC = () => {
       <img
         src="dartistana_create_a_professional_product_shoot_of_3_perfume_bot_643cefaf-f6d6-4210-af50-7db38bc60ffc-(1)-3.png"
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
+        className="absolute inset-0 w-full h-full lg:h-[500px] object-cover opacity-60"
       />
 
       {/* Overlay */}

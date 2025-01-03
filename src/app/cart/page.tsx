@@ -117,9 +117,7 @@ const CartPage = () => {
         </div>
 
         <div className="mt-8 text-right">
-          <h2 className="text-lg font-bold mt-4">Total Price</h2>
-          {/* Ensure total price is calculated and formatted properly */}
-          <p className="text-yellow-500 font-semibold">${getTotalPrice()}</p>
+         
 
           <Link
             href="/checkout"

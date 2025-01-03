@@ -53,7 +53,7 @@ const ProductsPage = () => {
             
             
               key={product.id}
-              className="motion-item hover:scale-105 shadow-lg rounded-lg p-6 flex flex-col items-center transition-transform duration-300 ease-in-out w-full bg-[#232323]" style={{ boxShadow:"4px 4px 10px #858585"}}
+              className="motion-item hover:scale-105 shadow-lg rounded-lg p-6 flex flex-col items-center transition-transform duration-300 ease-in-out w-full bg-gradient-to-r to-black via-[#1a1a1a] from-black" style={{ boxShadow: "-2px -2px 10px #ab572d, 4px 4px 16px #EFA94B" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -109,7 +109,7 @@ const ProductsPage = () => {
 
       
         {/* Aqua Serenity Offer */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 bg-gradient-to-r to-black via-[#063445] from-[#012A3D]">
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 bg-gradient-to-r to-black via-[#063445] from-[#012A3D]" style={{ boxShadow: "-10px -10px 44px #13d0e3, 10px 10px 44px #13d0e3" }}>
           <img
             src="shop/13.png"
             alt="Aqua Serenity Perfume"
@@ -141,7 +141,7 @@ const ProductsPage = () => {
 
 
         {/* Golden Angel Offer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 mt-20  bg-gradient-to-r to-black via-[#562E1A] from-black">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-32  bg-gradient-to-r to-black via-[#562E1A] from-black"style={{ boxShadow: "-10px -10px 44px #EFA94B, 10px 10px 44px #EFA94B" }}>
 
         <div className='text-star px-8 bg-gradient-to-r to-black via-[#562E1A] from-black'>
           <div className=' py-8'>

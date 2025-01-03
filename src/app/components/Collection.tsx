@@ -143,7 +143,7 @@ export default async function Collection() {
   />
 
   {/* Content Section */}
-  <div className="absolute left-0 lg:left-[133px] bottom-6 lg:bottom-10 px-6 lg:px-0 text-white w-full lg:w-[604px] flex flex-col gap-6">
+  <div className="absolute justify-center items-center left-0 lg:left-[133px] bottom-6 lg:bottom-10 px-6 lg:px-0 text-white w-full lg:w-[604px] flex flex-col gap-6">
     <div className="space-y-4">
       <p className="text-[30px] lg:text-[50px] font-medium">
         Perfume Year-End Sale! Up to 50% OFF

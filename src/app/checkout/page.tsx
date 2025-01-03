@@ -105,10 +105,10 @@ const CheckoutPage = () => {
               />
               <h2 className="text-lg font-bold">{item.name}</h2>
               <p className="text-yellow-500 font-semibold">
-                {item.price} x {item.quantity}
+                {item.price}
               </p>
-              <p className="text-gray-300">
-                Total: {(parseFloat(item.price) * item.quantity).toFixed(2)}
+              <p className="text-yellow-500 font-semibold">
+                 Quantity { item.quantity}
               </p>
             </div>
           ))}
@@ -172,7 +172,7 @@ const CheckoutPage = () => {
 
         {/* Total Price and Confirm Button */}
         <div className="mt-8 text-right">
-          <h3 className="text-2xl font-bold">Grand Total: ${getTotalPrice()}</h3>
+         
           <button
             className="px-6 py-3 mt-4 bg-green-500 text-white font-bold rounded-md hover:bg-green-600"
             onClick={handleConfirmOrder}
