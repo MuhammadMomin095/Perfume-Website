@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 const OrderSummaryPage = () => {
@@ -32,4 +32,12 @@ const OrderSummaryPage = () => {
   );
 };
 
-export default OrderSummaryPage;
+const OrderSummaryWrapper = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OrderSummaryPage />
+    </Suspense>
+  );
+};
+
+export default OrderSummaryWrapper;

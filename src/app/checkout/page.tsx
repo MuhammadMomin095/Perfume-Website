@@ -105,10 +105,10 @@ const CheckoutPage = () => {
               />
               <h2 className="text-lg font-bold">{item.name}</h2>
               <p className="text-yellow-500 font-semibold">
-                ${item.price} x {item.quantity}
+                {item.price} x {item.quantity}
               </p>
               <p className="text-gray-300">
-                Total: ${(parseFloat(item.price) * item.quantity).toFixed(2)}
+                Total: {(parseFloat(item.price) * item.quantity).toFixed(2)}
               </p>
             </div>
           ))}

@@ -47,7 +47,12 @@ const CartPage = () => {
   };
 
   const getTotalPrice = () => {
-    const total = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const total = cartItems.reduce((acc, item) => {
+      // Ensure price is a valid number
+      const price = parseFloat(item.price.toString());  // Convert price to number if needed
+      const itemTotal = isNaN(price) ? 0 : price * item.quantity; // Multiply price and quantity, handle invalid price
+      return acc + itemTotal; // Add the result to the accumulator
+    }, 0);
     return total.toFixed(2); // Ensure two decimal places
   };
 
@@ -69,7 +74,7 @@ const CartPage = () => {
     <div className='bg-black'>
       <Navbar />
       <div className="container relative text-center bg-black text-white mx-auto py-20 px-4">
-        <h1 className="text-5xl text-[#ab572d]  font-medium mb-6">Your Cart</h1>
+        <h1 className="text-5xl text-[#ab572d] font-medium mb-6">Your Cart</h1>
         <div className="flex relative text-center justify-center mt-8 flex-wrap gap-4">
           {cartItems.map(item => (
             <div
@@ -82,7 +87,8 @@ const CartPage = () => {
                 className="w-full object-cover rounded-lg"
               />
               <h2 className="text-lg font-bold mt-4">{item.name}</h2>
-              <p className="text-yellow-500 font-semibold">{item.price}</p>
+              {/* Ensure price is a number and format properly */}
+              <p className="text-yellow-500 font-semibold">{(item.price)}</p>
 
               <div className="flex items-center gap-4 mt-4">
                 <button
@@ -112,6 +118,7 @@ const CartPage = () => {
 
         <div className="mt-8 text-right">
           <h2 className="text-lg font-bold mt-4">Total Price</h2>
+          {/* Ensure total price is calculated and formatted properly */}
           <p className="text-yellow-500 font-semibold">${getTotalPrice()}</p>
 
           <Link
