@@ -141,7 +141,7 @@ const ProductsPage = () => {
 
 
         {/* Golden Angel Offer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 mt-20  bg-gradient-to-r to-black via-[#562E1A] from-[#5B260F]">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-20  bg-gradient-to-r to-black via-[#562E1A] from-black">
 
         <div className='text-star px-8 bg-gradient-to-r to-black via-[#562E1A] from-black'>
           <div className=' py-8'>

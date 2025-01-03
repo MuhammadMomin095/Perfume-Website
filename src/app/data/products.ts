@@ -211,7 +211,7 @@ export const productsData = [
       name: 'Luxurious Elixir ', 
       description: 'A premium executive desk made from high-quality wood. Features a large surface area and multiple drawers for optimal storage, making it perfect for executive-level workspaces.', 
       price: '$450', 
-      image: '/shop/8png' ,
+      image: '/shop/8.png' ,
       details: 
       "From the first spritz to the lingering dry-down, Luxurious Elixir promises an intoxicating experience that embodies the essence of lavish elegance.",
     features: [
@@ -241,7 +241,7 @@ export const productsData = [
       name: 'Luxurious Elixir ', 
       description: 'A solid wooden desk that exudes professionalism and style. Suitable for both home offices and corporate spaces, this desk comes with built-in storage and a polished finish.', 
       price: '$500', 
-      image: '/shop/9png' ,
+      image: '/shop/9.png' ,
       details: 'From the first spritz to the lingering dry-down, Luxurious Elixir promises an intoxicating experience that embodies the essence of lavish elegance.',
     features: [
       'Gold and luxury design',
@@ -269,7 +269,7 @@ export const productsData = [
       name: 'Luxurious Elixir ', 
       description: 'A contemporary office setup designed for high productivity. Includes a spacious desk and ergonomic seating, tailored for modern professionals who value both comfort and efficiency.', 
       price: '$550', 
-      image: '/shop/10png' ,
+      image: '/shop/10.png' ,
       details: 'From the first spritz to the lingering dry-down, Luxurious Elixir promises an intoxicating experience that embodies the essence of lavish elegance.',
     features: [
       'Gold and luxury design',
@@ -299,7 +299,7 @@ export const productsData = [
       name: 'Luxurious Elixir Luxury Workspace with Shelving', 
       description: 'A luxurious workspace with built-in shelving for extra storage. The sleek design and high-quality materials make this setup perfect for executives who need a sophisticated workspace.', 
       price: '$600', 
-      image: '/shop/11png' ,
+      image: '/shop/11.png' ,
       details: 'From the first spritz to the lingering dry-down, Luxurious Elixir promises an intoxicating experience that embodies the essence of lavish elegance.',
     features: [
       'Gold and luxury design',
@@ -326,7 +326,7 @@ export const productsData = [
       name: 'Luxurious Elixir ', 
       description: 'A classic wooden workspace featuring a timeless design. Ideal for any office environment, this setup offers durability, style, and functionality with extra storage space.', 
       price: '$650', 
-      image: '/shop/12png',
+      image: '/shop/12.png',
       details: 'From the first spritz to the lingering dry-down, Luxurious Elixir promises an intoxicating experience that embodies the essence of lavish elegance.',
     features: [
       'Gold and luxury design',

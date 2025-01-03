@@ -1,16 +1,10 @@
 'use client';
 
-
-
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useParams, useRouter } from 'next/navigation';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import { useParams } from 'next/navigation';
 import Link from "next/link";
-
-
-
 
 type Product = {
   id: number;
@@ -30,18 +24,16 @@ type Product = {
 };
 
 const ProductDetailsPage = () => {
-  
-  const { id } = useParams(); // Get the ID from URL params
+  const params = useParams(); // App Router-specific hook
+  const router = useRouter(); // App Router-specific hook
   const [product, setProduct] = useState<Product | null>(null);
-
-  const productId = typeof id === 'string' ? parseInt(id, 10) : null;
+  const [productItems, setProductItems] = useState<any[]>([]); // State for cart items
 
   useEffect(() => {
-    // Fetch product by ID
     const fetchProduct = async () => {
-      if (id) {
+      if (params.id) {
         try {
-          const response = await fetch(`/api/products/${id}`); // Replace with your actual API endpoint
+          const response = await fetch(`/api/products/${params.id}`);
           const data = await response.json();
           setProduct(data);
         } catch (error) {
@@ -51,119 +43,122 @@ const ProductDetailsPage = () => {
     };
 
     fetchProduct();
-  }, [id]);
+  }, [params.id]);
+
+  // Handle quantity change
+  const handleQuantityChange = (id: number, type: string) => {
+    const updatedItems = productItems.map((item) => {
+      if (item.id === id) {
+        if (type === 'increase') {
+          return { ...item, quantity: item.quantity + 1 };
+        } else if (type === 'decrease' && item.quantity > 1) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+      }
+      return item;
+    });
+
+    // Update localStorage and state
+    setProductItems(updatedItems);
+    localStorage.setItem('cart', JSON.stringify(updatedItems));
+  };
+
+  // Add product to the cart
+  const handleAddToBag = () => {
+    if (product) {
+      const storedCart = localStorage.getItem('cart');
+      const cart = storedCart ? JSON.parse(storedCart) : [];
+
+      const existingProductIndex = cart.findIndex((item: any) => item.id === product.id);
+
+      if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      setProductItems(cart); // Update cart state
+      router.push('/cart'); // Redirect to cart page
+    }
+  };
 
   if (!product) {
-    return <div className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase mb-4 w-[300px] sm:w-[450px] h-[87px] justify-center flex items-center bg-transparent border-4 text-black border-black" style={{ boxShadow: "10px 10px 20px #C1AA90" }}>
-            Loading...
-          </div>
-        
+    return (
+      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase mb-4 w-[300px] sm:w-[450px] h-[87px] justify-center flex items-center bg-transparent border-4 text-black border-black" style={{ boxShadow: "10px 10px 20px #C1AA90" }}>
+        Loading...
+      </div>
+    );
   }
 
   return (
     <div className="text-left bg-black text-white relative">
       <Navbar />
-    <div className="bg-black text-white py-10 px-4">
-      <div className="container mx-auto flex flex-col lg:flex-row items-center gap-8">
-        {/* Product Image */}
-        <div className="w-full justify-center items-center flex lg:w-1/2">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-96 justify-center rounded-md shadow-lg"
-          />
-        </div>
-
-        {/* Product Information */}
-        <div className="w-full lg:w-1/2">
-          <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
-          <p className="text-yellow-500 text-sm mb-4">
-            ★ {product.rating} ({product.reviews} Reviews)
-          </p>
-          <p className="text-gray-300 mb-6">{product.description}</p>
-
-          {/* Size Options */}
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">
-              Select Size:
-            </label>
-            <div className="flex gap-2">
-              {product.sizeOptions.map((size: string, index: number) => (
-                <button
-                  key={index}
-                  className="px-4 py-2 bg-gray-700 rounded-md hover:bg-yellow-500 focus:outline-none"
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
+      <div className="bg-black text-white py-10 px-4">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center gap-8">
+          <div className="w-full justify-center items-center flex lg:w-1/2">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-96 justify-center rounded-md shadow-lg"
+            />
           </div>
+          <div className="w-full lg:w-1/2">
+            <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
+            <p className="text-yellow-500 text-sm mb-4">
+              ★ {product.rating} ({product.reviews} Reviews)
+            </p>
+            <p className="text-gray-300 mb-6">{product.description}</p>
 
-          {/* Price */}
-          <p className="text-2xl font-semibold text-yellow-500 mb-4">
-            {product.price}
-          </p>
+            <p className="text-2xl font-semibold text-yellow-500 mb-4">
+              {product.price}
+            </p>
 
-          {/* Quantity and Wishlist */}
-          <div className="flex items-center gap-4 mb-4">
-            <div className="flex items-center">
-              <button className="px-3 py-1 bg-gray-700 rounded-l-md hover:bg-yellow-500">
-                -
-              </button>
-              <input
-                type="number"
-                defaultValue={1}
-                className="w-12 text-center bg-gray-800 focus:outline-none"
-              />
-              <button className="px-3 py-1 bg-gray-700 rounded-r-md hover:bg-yellow-500">
-                +
+            {/* Quantity and Wishlist */}
+            <div className="flex items-center gap-4 mb-4">
+              
+
+              <button className="px-4 py-2 bg-red-600 rounded-md hover:bg-red-700">
+                Wishlist ♥
               </button>
             </div>
-            <button className="px-4 py-2 bg-red-600 rounded-md hover:bg-red-700">
-              Wishlist ♥
+
+            <button
+              onClick={handleAddToBag}
+              className="w-64 py-3 bg-yellow-500 text-black font-bold rounded-md hover:bg-yellow-600"
+            >
+              Add to Bag
             </button>
           </div>
+        </div>
 
-          {/* Add to Bag Button */}
-          <button className="w-full py-3 bg-yellow-500 text-black font-bold rounded-md hover:bg-yellow-600">
-            Add to Bag
-          </button>
+        {/* Product Details Section */}
+        <div className="mt-10 container mx-auto">
+          <h2 className="text-2xl font-semibold mb-4">Product Details</h2>
+          <p className="text-gray-300 mb-6">{product.details}</p>
+
+          {/* Features */}
+          <h2 className="text-xl font-semibold mb-2">Features:</h2>
+          <ul className="list-disc list-inside text-gray-400">
+            {product.features.map((feature: string, index: number) => (
+              <li key={index}>{feature}</li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      {/* Product Details Section */}
-      <div className="mt-10 container mx-auto">
-        <h2 className="text-2xl font-semibold mb-4">Product Details</h2>
-        <p className="text-gray-300 mb-6">{product.details}</p>
-
-        {/* Features */}
-        <h2 className="text-xl font-semibold mb-2">Features:</h2>
-        <ul className="list-disc list-inside text-gray-400">
-          {product.features.map((feature: string, index: number) => (
-            <li key={index}>{feature}</li>
-          ))}
-        </ul>
+      <div className="text-center items-center flex justify-center md:text-left py-8">
+        <Link
+          href="/products"
+          className="px-6 py-3 text-white bg-black rounded-full shadow-md transform transition-all hover:scale-105"
+          style={{ boxShadow: "4px 4px 10px white" }}
+        >
+          Back to Products
+        </Link>
       </div>
-
-
-      
-
-    </div>
-    <div className="text-center items-center flex justify-center md:text-left py-8">
-                <Link
-                  href="/products"
-                  className="px-6 py-3 text-white bg-black rounded-full shadow-md transform transition-all hover:scale-105"
-                  style={{ boxShadow: "4px 4px 10px white" }}
-                >
-                  Back to Products
-                </Link>
-              </div>
-
-
-    <Footer />
+      <Footer />
     </div>
   );
-}
-
+};
 
 export default ProductDetailsPage;
