@@ -1,19 +1,14 @@
-'use client';
+// OrderSummaryPage.tsx
+import { useEffect, useState } from 'react';
 
-import { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-
-const OrderSummaryPage = () => {
+const OrderSummaryPage = ({ cartData }: { cartData: string | null }) => {
   const [orderSuccess, setOrderSuccess] = useState(false);
-  const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Check if order data exists in the query params (cart details)
-    const cartData = searchParams.get('cart');
     if (cartData) {
-      setOrderSuccess(true); // If cart data exists, assume the order has been successfully placed
+      setOrderSuccess(true);
     }
-  }, [searchParams]);
+  }, [cartData]);
 
   return (
     <div className="container mx-auto py-10 px-4">
@@ -32,12 +27,13 @@ const OrderSummaryPage = () => {
   );
 };
 
-const OrderSummaryWrapper = () => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <OrderSummaryPage />
-    </Suspense>
-  );
-};
+export async function getServerSideProps(context: any) {
+  const cartData = context.query.cart || null; // Fetch query param from URL
+  return {
+    props: {
+      cartData
+    }
+  };
+}
 
-export default OrderSummaryWrapper;
+export default OrderSummaryPage;
